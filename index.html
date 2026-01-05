@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather Dashboard</title>
+  
+  <!-- Link to the main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">Weather Dashboard</div>
+    <div class="dashboard-content">
+      <!-- Search Panel: User can enter city or use geolocation -->
+      <div class="search-panel">
+        <label for="city-input">Enter a City Name</label>
+        <input type="text" id="city-input" placeholder="E.g., New York, London, Tokyo" />
+        <button class="search-btn" id="search-btn">Search</button>
+        <div class="or-divider">or</div>
+        <button class="locate-btn" id="locate-btn">Use Current Location</button>
+      </div>
+      <!-- Weather Panel: Shows current weather and forecast -->
+      <div class="weather-panel">
+        <!-- Current Weather Card -->
+        <div class="current-weather-card" id="current-weather">
+          <div class="current-weather-details">
+            <div class="current-weather-title" id="current-city">City (YYYY-MM-DD)</div>
+            <div class="current-weather-info" id="current-temp">Temperature: --℃</div>
+            <div class="current-weather-info" id="current-wind">Wind: -- M/S</div>
+            <div class="current-weather-info" id="current-humidity">Humidity: --%</div>
+          </div>
+          <div class="current-weather-icon">
+            <img id="current-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon" />
+            <div class="current-weather-desc" id="current-desc">Description</div>
+          </div>
+        </div>
+        <!-- 5-Day Forecast Section -->
+        <div class="forecast-section-title">5-Day Forecast</div>
+        <div class="forecast-row" id="forecast-row">
+          <!-- Forecast cards will be injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
+
