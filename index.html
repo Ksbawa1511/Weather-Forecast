@@ -4,25 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Weather Dashboard</title>
-  
-  <!-- Link to the main stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="main-container">
-    <!-- Dashboard Header -->
-    <div class="dashboard-header">Weather Dashboard</div>
+    <div class="dashboard-header">
+      <div>Weather Dashboard</div>
+      <p class="dashboard-subtitle">Plan your day with quick, accurate forecasts.</p>
+    </div>
+
     <div class="dashboard-content">
       <!-- Search Panel: User can enter city or use geolocation -->
       <div class="search-panel">
-        <label for="city-input">Enter a City Name</label>
-        <input type="text" id="city-input" placeholder="E.g., New York, London, Tokyo" />
-        <button class="search-btn" id="search-btn">Search</button>
-        <div class="or-divider">or</div>
-        <button class="locate-btn" id="locate-btn">Use Current Location</button>
+        <form class="search-form" id="search-form" novalidate>
+          <label for="city-input">Enter a City Name</label>
+          <input type="text" id="city-input" placeholder="E.g., New York, London, Tokyo" autocomplete="off" required />
+          <div class="helper-text">Press Enter or tap Search to update the dashboard.</div>
+          <div class="button-stack">
+            <button type="submit" class="search-btn" id="search-btn">Search</button>
+            <div class="or-divider">or</div>
+            <button type="button" class="locate-btn" id="locate-btn">Use Current Location</button>
+          </div>
+        </form>
+        <div class="status-message" id="status-message" aria-live="polite" hidden></div>
+        <div class="saved-block">
+          <div class="saved-heading">
+            <span>Saved locations</span>
+            <span class="saved-sub">Keep up to 5 shortcuts</span>
+          </div>
+          <div class="saved-list" id="saved-list">
+            <div class="saved-empty">No saved cities yet.</div>
+          </div>
+        </div>
       </div>
+
       <!-- Weather Panel: Shows current weather and forecast -->
       <div class="weather-panel">
+        <div class="meta-row">
+          <div class="last-updated" id="last-updated">Updated: awaiting search</div>
+        </div>
+
         <!-- Current Weather Card -->
         <div class="current-weather-card" id="current-weather">
           <div class="current-weather-details">
@@ -36,6 +60,7 @@
             <div class="current-weather-desc" id="current-desc">Description</div>
           </div>
         </div>
+
         <!-- 5-Day Forecast Section -->
         <div class="forecast-section-title">5-Day Forecast</div>
         <div class="forecast-row" id="forecast-row">
